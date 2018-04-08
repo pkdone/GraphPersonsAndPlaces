@@ -19,6 +19,7 @@ Similar to the book's example, amongst the many persons records stored in MongoD
 
 _Note: It is assumed that you've already installed MongoDB (version 3.6 or greater) on a laptop/workstation, you've already started running a MongoDB database instance and you are familiar with using MongoDB's command line tools._
 
+    # Unzip places.json.zip & persons.json.zip first, then import:
     $ mongoimport -d placedata -c places --type json places.json
     $ mongoimport -d placedata -c persons --type json persons.json
 
