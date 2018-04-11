@@ -28,7 +28,7 @@ _Note: It is assumed that you've already installed MongoDB (version 3.6 or great
     use placedata
 
     // Define index ready for use by the subsequent graph lookups
-    // (with the index in place the main scenario takes around 3 
+    // (with the index in place the main scenario takes around 2 
     //  seconds to run versus ~45 seconds if no index is defined)
     db.places.ensureIndex({name: 1})
 
