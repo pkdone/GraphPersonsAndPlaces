@@ -55,18 +55,18 @@ _Note: It is assumed that you've already installed MongoDB (version 3.6 or great
             connectFromField: 'part_of',
             connectToField: 'name',
             depthField: 'depth',
-            as: 'born_location_line'
+            as: 'born_hierarchy'
         }},
-        {$match: {'born_location_line.name': born}},
+        {$match: {'born_hierarchy.name': born}},
         {$graphLookup: {
             from: 'places',
             startWith: '$lives_in',
             connectFromField: 'part_of',
             connectToField: 'name',
             depthField: 'depth',
-            as: 'lives_location_line'
+            as: 'lives_hierarchy'
         }},
-        {$match: {'lives_location_line.name': lives}},
+        {$match: {'lives_hierarchy.name': lives}},
         {$project: {
             _id: 0,
             fullname: 1, 
@@ -85,6 +85,7 @@ Example Output:
     { "lives_in" : "Sofia", "fullname" : "Bobby Mc1810", "born_in" : "California" }
     { "lives_in" : "Ilinden", "fullname" : "Simon Mc1839", "born_in" : "North Carolina" }
     { "lives_in" : "Zebbug Gozo", "fullname" : "Sandy Mc2165", "born_in" : "Texas" }
+    { "lives_in" : "Planken", "fullname" : "Gertrude Mc2869", "born_in" : "United States of America" }
     { "lives_in" : "Gradsko", "fullname" : "David Mc2409", "born_in" : "Michigan" }
     .......
     .......
