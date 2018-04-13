@@ -30,7 +30,7 @@ _Note: It is assumed that you've already installed MongoDB (version 3.6 or great
     // Define index ready for use by the subsequent graph lookups
     // (with the index in place the main scenario takes around 2 
     //  seconds to run versus ~45 seconds if no index is defined)
-    db.places.ensureIndex({name: 1})
+    db.places.createIndex({name: 1})
 
     // Example: Find birth location line for Lucy Smith
     db.persons.aggregate([
